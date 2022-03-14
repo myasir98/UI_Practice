@@ -108,6 +108,14 @@
       }
       .content {
         padding: 5%;
+        max-width: 100%;
+      }
+      .content-image{
+        max-width: 100%;
+      }
+      .content-image img{
+        max-width: 100%;
+        height: auto;
       }
       .open-menu-button{
         height: 40px;
@@ -135,6 +143,10 @@
       @media screen and (max-width: 900px) {
         .max-900-100{
           flex-direction: column;
+        }
+
+        .max-900-100:nth-child(even){
+          flex-direction: column-reverse;
         }
       }
 
@@ -237,7 +249,12 @@
         </div>
       </div>
       <div class="about-section flex flex-center  max-900-100 column" id="feature" style="flex-grow: 1">
-        
+        <div class="content-image flex-item" style="flex-grow: 1">
+          <img
+            src="https://bigcatsnft.com/assets/big-cats/images/gallery/img-10.jpg"
+            alt="about-image"
+          />
+        </div>  
         <div class="description flex flex-item row">
           <h2 class="yellow-text">Features</h2>
           <h3 class="white-text">This Supreme is the Feature of the USA</h3>
@@ -251,12 +268,6 @@
             recusandae, quisquam ipsam nesciunt pariatur rerum odio.
           </p>
         </div>
-        <div class="content-image flex-item" style="flex-grow: 1">
-          <img
-            src="https://bigcatsnft.com/assets/big-cats/images/gallery/img-10.jpg"
-            alt="about-image"
-          />
-        </div>  
       </div>
     </section>
   </body>

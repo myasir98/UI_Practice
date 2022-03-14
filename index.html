@@ -74,7 +74,9 @@
         max-height: 60px;
         background-color: black;
         color: white;
+        justify-content: space-around;
       }
+
       .menu {
         width: 100%;
         justify-content: space-evenly;
@@ -277,12 +279,14 @@
   <script>
     var menu_button = document.getElementById("open-menu");
     menu_button.addEventListener("click", function(){
-      document.getElementById("menu").style.top = '0px'
+      document.getElementById("menu").style.top = '0px';
+      document.body.style.overflow = "hidden";
     })
     
     var close_button = document.getElementById("close-menu");
     close_button.addEventListener("click", function(){
       document.getElementById("menu").style.top = '-100vh'
+      document.body.style.overflow = "auto";
     })
   </script>
 </html>

@@ -48,16 +48,23 @@
       .bg-white {
         background-color: white;
       }
+
       .btn {
         outline: none;
         border: none;
-        padding: 0px 20px;
       }
       .btn-primary {
         height: 40px;
         width: auto;
       }
 
+      .display-none{
+        display: none;
+      }
+
+      .text-center{
+        text-align: center;
+      }
       /* Elements Styling */
       .header-type {
         z-index: 99;
@@ -70,8 +77,8 @@
       }
       .menu {
         width: 100%;
-
         justify-content: space-evenly;
+        transition: all 0.5s;
       }
       .menu-items a {
         color: white;
@@ -101,6 +108,72 @@
       }
       .content {
         padding: 5%;
+        max-width: 100%;
+      }
+      .content-image{
+        max-width: 100%;
+      }
+      .content-image img{
+        max-width: 100%;
+        height: auto;
+      }
+      .open-menu-button{
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+      }
+      .open-menu-div{
+        width: 20px;
+        border: 1px solid black;
+        margin: 2px;
+      }
+      .close-menu-button{
+        position: absolute;
+        z-index: 1;
+        right: 40px;
+        top: 40px;
+        font-size: 30px;
+        font-weight: bolder;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      /* Media queries */
+
+      @media screen and (max-width: 900px) {
+        .max-900-100{
+          flex-direction: column;
+        }
+
+        .max-900-100:nth-child(even){
+          flex-direction: column-reverse;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .menu{
+          flex-direction: column;
+          background-color: black;
+          position: fixed;
+          left: 0;
+          top: -100vh;
+          margin: 0;
+          overflow-x: auto;
+          width: 100vw;
+          height: 100vh;
+        }
+
+        .navigation {
+          justify-content: left;
+        }
+
+        .open-menu-button{
+          display: flex;
+        }
+
+        .close-menu-button{
+          display: inline;
+        }
       }
     </style>
   </head>
@@ -111,7 +184,10 @@
           <h1>logo</h1>
         </div>
         <nav class="flex flex-center navigation" style="flex-grow: 3">
-          <ul class="flex menu">
+          <ul class="flex menu" id="menu">
+            <button class="close-menu-button btn bg-white display-none" id="close-menu"> 
+              X
+            </button>
             <li class="menu-items"><a href="#">About</a></li>
             <li class="menu-items"><a href="#">Features</a></li>
             <li class="menu-items"><a href="#">RoadMap</a></li>
@@ -119,6 +195,11 @@
             <li class="menu-items"><a href="#">FAQ</a></li>
           </ul>
         </nav>
+        <button class="display-none btn flex flex-center row bg-white open-menu-button" id="open-menu">
+          <div class="open-menu-div"></div>
+          <div class="open-menu-div"></div>
+          <div class="open-menu-div"></div>
+        </button>
         <div class="flex social flex-center" style="flex-grow: 2">
           <h1>social</h1>
         </div>
@@ -133,11 +214,11 @@
             THE <span class="yellow-text">BIG CATS</span>
           </h1>
           <p class="white-text flex flex-center row">
-            <span>
+            <span class="text-center">
               The Big Cats NFT will produce a collection of 5000 pieces with
               each piece of their DNA
             </span>
-            <span> shared and protected via the Ethereum Blockchain. </span>
+            <span class="text-center"> shared and protected via the Ethereum Blockchain. </span>
             <button class="btn btn-primary bg-white" style="margin-top: 20px">
               Subscribe Now
             </button>
@@ -146,8 +227,8 @@
       </div>
     </section>
     <section class="content">
-      <div class="about-section flex column" id="about" style="flex-grow: 1">
-        <div class="description flex row">
+      <div class="about-section flex flex-center column max-900-100" id="about" style="flex-grow: 1">
+        <div class="description flex row flex-item">
           <h2 class="yellow-text">About</h2>
           <h3 class="white-text">This Supreme is the leader of the USA</h3>
           <p class="white-text">
@@ -160,21 +241,21 @@
             recusandae, quisquam ipsam nesciunt pariatur rerum odio.
           </p>
         </div>
-        <div class="content-image" style="flex-grow: 1">
+        <div class="content-image flex-item" style="flex-grow: 1">
           <img
             src="https://bigcatsnft.com/assets/big-cats/images/about-us/about.png"
             alt="about-image"
           />
         </div>
       </div>
-      <div class="about-section flex column" id="feature" style="flex-grow: 1">
-        <div class="content-image" style="flex-grow: 1">
+      <div class="about-section flex flex-center  max-900-100 column" id="feature" style="flex-grow: 1">
+        <div class="content-image flex-item" style="flex-grow: 1">
           <img
             src="https://bigcatsnft.com/assets/big-cats/images/gallery/img-10.jpg"
             alt="about-image"
           />
-        </div>
-        <div class="description flex row">
+        </div>  
+        <div class="description flex flex-item row">
           <h2 class="yellow-text">Features</h2>
           <h3 class="white-text">This Supreme is the Feature of the USA</h3>
           <p class="white-text">
@@ -191,5 +272,15 @@
     </section>
   </body>
 
-  <script></script>
+  <script>
+    var menu_button = document.getElementById("open-menu");
+    menu_button.addEventListener("click", function(){
+      document.getElementById("menu").style.top = '0px'
+    })
+    
+    var close_button = document.getElementById("close-menu");
+    close_button.addEventListener("click", function(){
+      document.getElementById("menu").style.top = '-100vh'
+    })
+  </script>
 </html>

@@ -121,10 +121,11 @@
         height: 40px;
         width: 40px;
         border-radius: 50%;
+        background-color: transparent;
       }
       .open-menu-div{
         width: 20px;
-        border: 1px solid black;
+        border: 1px solid white;
         margin: 2px;
       }
       .close-menu-button{
@@ -195,14 +196,14 @@
             <li class="menu-items"><a href="#">FAQ</a></li>
           </ul>
         </nav>
-        <button class="display-none btn flex flex-center row bg-white open-menu-button" id="open-menu">
+        <div class="flex social flex-center" style="flex-grow: 2">
+          <h1>social</h1>
+        </div>
+        <button class="display-none btn flex flex-center row open-menu-button" id="open-menu">
           <div class="open-menu-div"></div>
           <div class="open-menu-div"></div>
           <div class="open-menu-div"></div>
         </button>
-        <div class="flex social flex-center" style="flex-grow: 2">
-          <h1>social</h1>
-        </div>
       </header>
       <div class="hero">
         <img
